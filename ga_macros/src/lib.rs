@@ -20,5 +20,5 @@ lazy_static! {
 
 #[proc_macro]
 pub fn eq(tokens: TokenStream) -> TokenStream {
-    format!("\"Doing math on ({}) with type {:?}\"", tokens.to_string().replace("\"", "\\\""), *TYPE).as_str().parse().unwrap()
+    format!("\"Doing {} math on ({}) with type {:?}\"", if TYPE.2 > 0 {"PGA"} else {""}, tokens.to_string().replace("\"", "\\\""), *TYPE).as_str().parse().unwrap()
 }
